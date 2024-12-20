@@ -1,0 +1,42 @@
+﻿@page
+@model Proy_Identity.Pages.Productos.IndexModel
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<div class="container">
+    <h2 class="text-center">Listado de Productos</h2>
+
+    <p class="text-center">
+        <a class="btn btn-primary" asp-page="Create">Crear Nuevo Producto</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Producto[0].Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.Producto[0].Descripcion)</th>
+                <th>@Html.DisplayNameFor(model => model.Producto[0].Precio)</th>
+                <th>@Html.DisplayNameFor(model => model.Producto[0].Stock)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Producto)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Stock)</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
+                        <a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">Detalles</a>
+                        <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

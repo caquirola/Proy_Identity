@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Proy_Identity.Identity;
+
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Navigation</title>
+    <link rel="stylesheet" href="~/Proy_Identity.styles.css" asp-append-version="true" />
+
+</head>
+
+<body>
+    <nav>
+
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+                <ul class="nav-links">
+                    <li>
+                        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                    </li>
+                    <li>
+                        <button type="submit">Logout</button>
+                    </li>
+                </ul>
+            </form>
+        }
+        else
+        {
+            <ul class="nav-links">
+                <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+                <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+            </ul>
+        }
+    </nav>
+</body>
+</html> 
+

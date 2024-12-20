@@ -1,0 +1,46 @@
+﻿@page
+@model Proy_Identity.Pages.Account.RegisterModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registro</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input asp-for="Register.nombre" id="nombre" />
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input asp-for="Register.apellido" id="apellido" />
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input asp-for="Register.telefono" id="telefono" />
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input asp-for="Register.direccion" id="direccion" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input asp-for="Register.email" id="email" type="email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input asp-for="Register.password" id="password" type="password" />
+            </div>
+            <div class="form-group">
+                <label for="confirmpassword">Confirmar Contraseña</label>
+                <input asp-for="Register.confirmpassword" id="confirmpassword" type="password" />
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>
